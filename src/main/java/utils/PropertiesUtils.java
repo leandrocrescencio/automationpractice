@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 public class PropertiesUtils {
 
@@ -24,10 +23,5 @@ public class PropertiesUtils {
 			LOGGER.warn(e.getMessage());
 		}
 		return propertie.getProperty(name);
-	}
-
-	public static void getConfigFile() throws IOException {
-		propertie.load(new FileInputStream(PATH));
-		PropertyConfigurator.configure(propertie);
 	}
 }

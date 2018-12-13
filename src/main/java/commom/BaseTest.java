@@ -22,10 +22,10 @@ import com.relevantcodes.extentreports.LogStatus;
 import pageObjects.Account;
 import pageObjects.Cart;
 import pageObjects.CartSummary;
-import pageObjects.Clothes;
-import pageObjects.CreateAccount;
-import pageObjects.CreateAccountForm;
-import pageObjects.Homepage;
+import pageObjects.Dress;
+import pageObjects.CreateUser;
+import pageObjects.CreateUserForm;
+import pageObjects.Home;
 import pageObjects.ShoppingActions;
 import pageObjects.SignInForm;
 import utils.ExtentManager;
@@ -38,15 +38,15 @@ public class BaseTest {
 	public WebDriver driver;
 	public Actions action;
 	
-	public Clothes clothes;
+	public Dress clothes;
 	public Cart cart;
 	public ShoppingActions shoppingActions;
 	public CartSummary summary;
 	public SignInForm signinForm;
 	public Account account;
-	public Homepage homepage;
-	public CreateAccount createAccount;
-	public CreateAccountForm createAccountForm;
+	public Home homepage;
+	public CreateUser createAccount;
+	public CreateUserForm createAccountForm;
 	public SignInForm signin;
 	
 	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
@@ -58,24 +58,21 @@ public class BaseTest {
 
 		action = new Actions(driver);
 
-		clothes = new Clothes(driver);
+		clothes = new Dress(driver);
 		cart = new Cart(driver);
 		shoppingActions = new ShoppingActions(driver);
 		signinForm = new SignInForm(driver);
 		summary = new CartSummary(driver);
 		account = new Account(driver);
 		
-		homepage = new Homepage(driver);
-		createAccount = new CreateAccount(driver);
-		createAccountForm = new CreateAccountForm(driver);
+		homepage = new Home(driver);
+		createAccount = new CreateUser(driver);
+		createAccountForm = new CreateUserForm(driver);
 		signin = new SignInForm(driver);
 		account = new Account(driver);
 
-		
-		
-		String baseUrl = "http://automationpractice.com/index.php";
 		driver.manage().window().maximize();
-		driver.get(baseUrl);
+		driver.get(PropertiesUtils.getValue("url"));
 	}
 
 	@AfterClass
