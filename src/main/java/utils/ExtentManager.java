@@ -17,10 +17,8 @@ public class ExtentManager {
     public static ExtentReports createInstance(String testName) {
         String fileName = filePathMethod(testName);
         extent = new ExtentReports(fileName, false);
-        extent.loadConfig(new File(StaticValues.PATH_PROJECT + "//src//test//resources//config//extent-config.xml"));
+        extent.loadConfig(new File(StaticValues.PATH_PROJECT + "//src//test//resources//extent-config.xml"));
         extent.assignProject(testName);
-        extent.addSystemInfo("AMBIENTE", "HOMOLOG");
-        extent.addSystemInfo("LEGADO", "SIAT"); 
         return extent;
     }
     
