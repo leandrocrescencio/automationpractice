@@ -36,14 +36,6 @@ public class Cart {
 		return ElementUtils.elementWait(driver, By.xpath("//dt[" + numOfProduct + "]//span[@class=\"price\"]"), 30);
 	}
 	
-	public WebElement getCartProduct5DeleteX(int numOfElement) {
-		return ElementUtils.clickWait(driver, By.xpath("//dt[" + numOfElement + "]//a[@class=\"ajax_cart_block_remove_link\"]"), 30);
-	}
-	
-	public WebElement getCartShipi5ngFree() {
-		return ElementUtils.elementWait(driver, By.xpath("//div[@class=\"cart-prices\"]//span[contains(.,\"Free shipping\")]"), 30);
-	}
-	
 	public WebElement getCartShipingCost() {
 		return ElementUtils.elementWait(driver, By.xpath("//div[@class=\"cart-prices\"]//span[contains(.,\"$2.00\")]"), 30);
 	}
