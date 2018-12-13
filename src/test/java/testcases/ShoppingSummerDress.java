@@ -117,6 +117,7 @@ public class ShoppingSummerDress extends BaseTest {
 
 	@Test(priority = 9, description="Check Order History", dependsOnMethods={"confirmOrder"} )
 	public void checkIsOrderVisibleInOrderHistorySection() {
+		boolean checkedItems = false;
 		account.getAccountBtn().click();
 
 		Assert.assertTrue(account.getAccountOrderHistoryBtn().isDisplayed());
@@ -128,7 +129,11 @@ public class ShoppingSummerDress extends BaseTest {
 		account.getAccountBtn().click();
 		account.getAccountOrderHistoryBtn().click();
 
-		Assert.assertEquals(account.getAccountOrdersLis().size(), 1);
+		
+		if (account.getAccountOrdersLis().size()>=1) {
+			checkedItems = true;
+		}
+		Assert.assertEquals(checkedItems, true);
 	}
 
 }

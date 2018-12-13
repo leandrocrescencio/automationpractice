@@ -4,7 +4,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 
-
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -47,6 +48,8 @@ public class BaseTest {
 	public CreateAccount createAccount;
 	public CreateAccountForm createAccountForm;
 	public SignInForm signin;
+	
+	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
 	
 	@BeforeClass
 	public void setup() {
