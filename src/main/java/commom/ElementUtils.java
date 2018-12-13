@@ -1,5 +1,4 @@
 package commom;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,16 +11,12 @@ public class ElementUtils {
 		throw new IllegalStateException("Utility class");
 	}
 	
-	private static final Logger LOGGER = Logger.getLogger(ElementUtils.class);
-
 	public static WebElement clickWait(WebDriver driver, By selector, int waitInterval) {
-		WebElement element = (new WebDriverWait(driver, waitInterval)).until(ExpectedConditions.elementToBeClickable(selector));
-		return element;
+		return (new WebDriverWait(driver, waitInterval)).until(ExpectedConditions.elementToBeClickable(selector));
 	}
 
 	public static WebElement elementWait(WebDriver driver, By selector, int waitInterval) {
-		WebElement element = (new WebDriverWait(driver, waitInterval)).until(ExpectedConditions.presenceOfElementLocated(selector));
-		return element;
+		return (new WebDriverWait(driver, waitInterval)).until(ExpectedConditions.presenceOfElementLocated(selector));
 	}
 	
 	public static void titleWait(WebDriver driver, String title, int waitInterval){
