@@ -32,14 +32,6 @@ public class CreateUser {
 		element.sendKeys(email);
 	}
 	
-	public WebElement getEmailFieldHighlightedRed() {
-		return ElementUtils.elementWait(driver, By.xpath("//div[@class=\"form-group form-error\"]"), 30);
-	}
-	
-	public WebElement getEmailFieldHighlightedGreen() {
-		return ElementUtils.elementWait(driver, By.xpath("//div[@class=\"form-group form-ok\"]"), 30);
-	}
-	
 	public WebElement getEmailErrorMessage() {
 		return ElementUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid email address.\")]"), 30);
 	}
