@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import commom.BaseTest;
 import utils.PropertiesUtils;
 
-public class CreateNewAccount extends BaseTest {
+public class CreateAccount extends BaseTest {
 
 	@Test(priority = 1, description="Create New User Account")
 	public void createNewUser() {

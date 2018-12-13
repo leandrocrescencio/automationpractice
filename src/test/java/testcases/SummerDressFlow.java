@@ -6,22 +6,22 @@ import org.testng.annotations.Test;
 import commom.BaseTest;
 import utils.PropertiesUtils;
 
-public class ShoppingSummerDress extends BaseTest {
+public class SummerDressFlow extends BaseTest {
 
 	@Test(priority = 1, description="Select Dress")
 	public void selectDress() {
-		Assert.assertTrue(clothes.getDressesBtn().isDisplayed());
-		action.moveToElement(clothes.getDressesBtn()).perform();
-		Assert.assertTrue(clothes.getSummerDressesBtn().isDisplayed());
-		Assert.assertTrue(clothes.getCasualDressesBtn().isDisplayed());
-		Assert.assertTrue(clothes.getEveningDressesBtn().isDisplayed());
-		action.moveToElement(clothes.getSummerDressesBtn()).perform();
-		clothes.getSummerDressesBtn().click();
-		Assert.assertTrue(clothes.getDress(1).isDisplayed());
-		Assert.assertTrue(clothes.getDress(2).isDisplayed());
-		Assert.assertTrue(clothes.getDress(3).isDisplayed());
-		Assert.assertEquals(clothes.getDressesCount().size(), 3);
-		action.moveToElement(clothes.getDress(1)).perform();
+		Assert.assertTrue(dress.getDressesBtn().isDisplayed());
+		action.moveToElement(dress.getDressesBtn()).perform();
+		Assert.assertTrue(dress.getSummerDressesBtn().isDisplayed());
+		Assert.assertTrue(dress.getCasualDressesBtn().isDisplayed());
+		Assert.assertTrue(dress.getEveningDressesBtn().isDisplayed());
+		action.moveToElement(dress.getSummerDressesBtn()).perform();
+		dress.getSummerDressesBtn().click();
+		Assert.assertTrue(dress.getDress(1).isDisplayed());
+		Assert.assertTrue(dress.getDress(2).isDisplayed());
+		Assert.assertTrue(dress.getDress(3).isDisplayed());
+		Assert.assertEquals(dress.getDressesCount().size(), 3);
+		action.moveToElement(dress.getDress(1)).perform();
 		action.moveToElement(shoppingActions.getAddToCartBtn()).perform();
 		Assert.assertTrue(shoppingActions.getAddToCartBtn().isDisplayed());
 		action.click(shoppingActions.getAddToCartBtn()).build().perform();
@@ -51,10 +51,7 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertEquals(summary.getCartSummaryTotalPrice().getText(), "$30.98");
 		Assert.assertEquals(summary.getCartSummTotalShipping().getText(), "$2.00");
 		Assert.assertTrue(summary.getCartSummQtyPlus(1).isDisplayed());
-		Assert.assertTrue(summary.getCartSummQtyPlus(1).isDisplayed());
 		Assert.assertTrue(summary.getCartSummQtyMinus(1).isDisplayed());
-		Assert.assertTrue(summary.getCartSummQtyMinus(1).isDisplayed());
-		Assert.assertTrue(summary.getCartSummQtyInput(1).isDisplayed());
 		Assert.assertTrue(summary.getCartSummQtyInput(1).isDisplayed());
 	}
 
@@ -119,17 +116,11 @@ public class ShoppingSummerDress extends BaseTest {
 	public void checkIsOrderVisibleInOrderHistorySection() {
 		boolean checkedItems = false;
 		account.getAccountBtn().click();
-
 		Assert.assertTrue(account.getAccountOrderHistoryBtn().isDisplayed());
-
 		account.getAccountOrderHistoryBtn().click();
-
 		Assert.assertTrue(account.getAccountOrderListTable().isDisplayed());
-
 		account.getAccountBtn().click();
 		account.getAccountOrderHistoryBtn().click();
-
-		
 		if (account.getAccountOrdersLis().size()>=1) {
 			checkedItems = true;
 		}

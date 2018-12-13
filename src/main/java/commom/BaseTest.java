@@ -38,7 +38,7 @@ public class BaseTest {
 	public WebDriver driver;
 	public Actions action;
 	
-	public Dress clothes;
+	public Dress dress;
 	public Cart cart;
 	public ShoppingActions shoppingActions;
 	public CartSummary summary;
@@ -57,14 +57,12 @@ public class BaseTest {
 		driver = new ChromeDriver();
 
 		action = new Actions(driver);
-
-		clothes = new Dress(driver);
+		dress = new Dress(driver);
 		cart = new Cart(driver);
 		shoppingActions = new ShoppingActions(driver);
 		signinForm = new SignInForm(driver);
 		summary = new CartSummary(driver);
 		account = new Account(driver);
-		
 		homepage = new Home(driver);
 		createAccount = new CreateUser(driver);
 		createAccountForm = new CreateUserForm(driver);
