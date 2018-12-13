@@ -77,8 +77,8 @@ public class BaseTest {
 
 	@AfterClass
 	public void tearDown() {
-		//account.getAccountLogout().click();
-		//driver.quit();
+		account.getAccountLogout().click();
+		driver.quit();
 	}
 	
 	

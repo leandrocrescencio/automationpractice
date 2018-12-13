@@ -11,48 +11,33 @@ public class ShoppingSummerDress extends BaseTest {
 	@Test(priority = 1, description="Select Dress")
 	public void selectDress() {
 		Assert.assertTrue(clothes.getDressesBtn().isDisplayed());
-
 		action.moveToElement(clothes.getDressesBtn()).perform();
-
 		Assert.assertTrue(clothes.getSummerDressesBtn().isDisplayed());
 		Assert.assertTrue(clothes.getCasualDressesBtn().isDisplayed());
 		Assert.assertTrue(clothes.getEveningDressesBtn().isDisplayed());
-
 		action.moveToElement(clothes.getSummerDressesBtn()).perform();
 		clothes.getSummerDressesBtn().click();
-
 		Assert.assertTrue(clothes.getSummerDressProduct(1).isDisplayed());
 		Assert.assertTrue(clothes.getSummerDressProduct(2).isDisplayed());
 		Assert.assertTrue(clothes.getSummerDressProduct(3).isDisplayed());
 		Assert.assertEquals(clothes.getDressesCount().size(), 3);
-
 		action.moveToElement(clothes.getSummerDressProduct(1)).perform();
 		action.moveToElement(shoppingActions.getAddToCartBtn()).perform();
-
 		Assert.assertTrue(shoppingActions.getAddToCartBtn().isDisplayed());
-
 		action.click(shoppingActions.getAddToCartBtn()).build().perform();
-
 		action.click(shoppingActions.getProceedToCheckoutBtn()).build().perform();
 		action.moveToElement(cart.getCartTab()).perform();
-
 		Assert.assertEquals(cart.getCartProductsQty().size(), 1);
 	}
 
 	@Test(priority = 2, description="Check Cart.", dependsOnMethods={"selectDress"} )
 	public void checkingCartProductsQtyAndPrice() {
-
 		action.moveToElement(cart.getCartTab()).perform();
 		action.moveToElement(cart.getCartProductsQty(1)).perform();
-
 		Assert.assertEquals(cart.getCartProductsQty(1).getText(), "1");
-
 		action.moveToElement(cart.getCartShipingCost()).perform();
-
 		Assert.assertEquals(cart.getCartShipingCost().getText(), "$2.00");
-
 		action.moveToElement(cart.getCartTotalPrice()).perform();
-
 		Assert.assertEquals(cart.getCartTotalPrice().getText(), "$30.98");
 	}
 
