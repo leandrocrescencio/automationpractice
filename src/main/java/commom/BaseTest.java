@@ -19,15 +19,15 @@ import org.testng.annotations.BeforeSuite;
 
 import com.relevantcodes.extentreports.LogStatus;
 
-import pageObjects.Account;
-import pageObjects.Cart;
-import pageObjects.CartSummary;
-import pageObjects.Dress;
-import pageObjects.CreateUser;
-import pageObjects.CreateUserForm;
-import pageObjects.Home;
-import pageObjects.ShoppingActions;
-import pageObjects.SignInForm;
+import pageobjects.Account;
+import pageobjects.Cart;
+import pageobjects.CartSummary;
+import pageobjects.CreateUser;
+import pageobjects.CreateUserForm;
+import pageobjects.Dress;
+import pageobjects.Home;
+import pageobjects.ShoppingActions;
+import pageobjects.SignInForm;
 import utils.ExtentManager;
 import utils.ExtentTestManager;
 import utils.PropertiesUtils;

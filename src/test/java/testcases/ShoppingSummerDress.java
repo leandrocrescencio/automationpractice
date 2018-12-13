@@ -17,11 +17,11 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertTrue(clothes.getEveningDressesBtn().isDisplayed());
 		action.moveToElement(clothes.getSummerDressesBtn()).perform();
 		clothes.getSummerDressesBtn().click();
-		Assert.assertTrue(clothes.getSummerDressProduct(1).isDisplayed());
-		Assert.assertTrue(clothes.getSummerDressProduct(2).isDisplayed());
-		Assert.assertTrue(clothes.getSummerDressProduct(3).isDisplayed());
+		Assert.assertTrue(clothes.getDress(1).isDisplayed());
+		Assert.assertTrue(clothes.getDress(2).isDisplayed());
+		Assert.assertTrue(clothes.getDress(3).isDisplayed());
 		Assert.assertEquals(clothes.getDressesCount().size(), 3);
-		action.moveToElement(clothes.getSummerDressProduct(1)).perform();
+		action.moveToElement(clothes.getDress(1)).perform();
 		action.moveToElement(shoppingActions.getAddToCartBtn()).perform();
 		Assert.assertTrue(shoppingActions.getAddToCartBtn().isDisplayed());
 		action.click(shoppingActions.getAddToCartBtn()).build().perform();

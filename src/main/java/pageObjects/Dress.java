@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import java.util.List;
 
@@ -45,21 +45,11 @@ public class Dress {
 		return ElementUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]//a[contains(text(), \"Summer Dresses\")]"), 30);
 	}
 	
-	/**@param dressNum (value 1) */
-	public WebElement getCasualDressProduct(int dressNum) {
-		return ElementUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li[" + dressNum + "]"), 30);	
-	}
-	
-	/**@param dressNum (value 1) */
-	public WebElement getEveningDressProduct(int dressNum) {
-		return ElementUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li[" + dressNum + "]"), 30);	
-	}
-	
 	/**@param dressNum (values from 1 to 3) */
-	public WebElement getSummerDressProduct(int dressNum) {
-		return ElementUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li[" + dressNum + "]"), 30);	
-	}
-	
+	public WebElement getDress(int dressNum) {
+		return ElementUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li[" + dressNum + "]"), 30);
+	}		
+		
 	public List<WebElement> getDressesCount() {
 		return driver.findElements(By.xpath("//*[@id=\"center_column\"]/ul/li"));	
 	}

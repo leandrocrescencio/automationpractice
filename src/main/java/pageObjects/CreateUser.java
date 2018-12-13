@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +31,6 @@ public class CreateUser {
 		element.clear();
 		element.sendKeys(email);
 	}
-
 	
 	public WebElement getEmailFieldHighlightedRed() {
 		return ElementUtils.elementWait(driver, By.xpath("//div[@class=\"form-group form-error\"]"), 30);
