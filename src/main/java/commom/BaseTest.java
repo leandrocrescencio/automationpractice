@@ -15,6 +15,7 @@ import pageObjects.CreateAccountForm;
 import pageObjects.Homepage;
 import pageObjects.ShoppingActions;
 import pageObjects.SignInForm;
+import utils.PropertiesUtils;
 
 public class BaseTest {
 	
@@ -34,7 +35,7 @@ public class BaseTest {
 	
 	@BeforeClass
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", PropertiesUtils.getValue("driver"));
 		driver = new ChromeDriver();
 
 		action = new Actions(driver);

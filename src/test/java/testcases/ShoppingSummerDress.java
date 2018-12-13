@@ -1,13 +1,14 @@
 package testcases;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import commom.BaseTest;
-import utils.EmailGenerator;
+import utils.PropertiesUtils;
 
 public class ShoppingSummerDress extends BaseTest {
 
-	@Test(priority = 1)
+	@Test(priority = 1, description="Select Dress")
 	public void selectDress() {
 		Assert.assertTrue(clothes.getDressesBtn().isDisplayed());
 
@@ -19,7 +20,7 @@ public class ShoppingSummerDress extends BaseTest {
 
 		action.moveToElement(clothes.getSummerDressesBtn()).perform();
 		clothes.getSummerDressesBtn().click();
- 
+
 		Assert.assertTrue(clothes.getSummerDressProduct(1).isDisplayed());
 		Assert.assertTrue(clothes.getSummerDressProduct(2).isDisplayed());
 		Assert.assertTrue(clothes.getSummerDressProduct(3).isDisplayed());
@@ -31,16 +32,16 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertTrue(shoppingActions.getAddToCartBtn().isDisplayed());
 
 		action.click(shoppingActions.getAddToCartBtn()).build().perform();
-		
+
 		action.click(shoppingActions.getProceedToCheckoutBtn()).build().perform();
 		action.moveToElement(cart.getCartTab()).perform();
 
 		Assert.assertEquals(cart.getCartProductsQty().size(), 1);
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, description="Check Cart.", dependsOnMethods={"selectDress"} )
 	public void checkingCartProductsQtyAndPrice() {
-		
+
 		action.moveToElement(cart.getCartTab()).perform();
 		action.moveToElement(cart.getCartProductsQty(1)).perform();
 
@@ -54,11 +55,11 @@ public class ShoppingSummerDress extends BaseTest {
 
 		Assert.assertEquals(cart.getCartTotalPrice().getText(), "$30.98");
 	}
-	
-	@Test(priority = 3)
+
+	@Test(priority = 3, description="Check Summary.", dependsOnMethods={"checkingCartProductsQtyAndPrice"} )
 	public void checkSummary() {
 		action.moveToElement(summary.getCartSummaryTable()).perform();
-	
+
 		Assert.assertTrue(summary.getCartSummaryTable().isDisplayed());
 		Assert.assertEquals(summary.getCartSummTotalProductsNum().size(), 1);
 		Assert.assertEquals(summary.getCartSummTotalProductsPrice().getText(), "$28.98");
@@ -72,20 +73,20 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertTrue(summary.getCartSummQtyInput(1).isDisplayed());
 	}
 
-
-	@Test(priority = 4)
+	@Test(priority = 4, description="Sign In.", dependsOnMethods={"checkSummary"} )
 	public void signinRequest() {
-		action.moveToElement(summary.getCartProceedBtnTwo()).perform();
-		summary.getCartProceedBtnTwo().click();
+
+		action.moveToElement(summary.getCartProceedBtn()).perform();
+		summary.getCartProceedBtn().click();
 
 		Assert.assertTrue(signinForm.getSignInForm().isDisplayed());
 
-		signinForm.setEmailField(EmailGenerator.getCurrentEmail());
-		signinForm.setPasswordField("tester123");
+		signinForm.setEmailField(PropertiesUtils.getValue("email"));
+		signinForm.setPasswordField(PropertiesUtils.getValue("pass"));
 		signinForm.getSignInBtn().click();
 	}
-    /*
-	@Test(priority = 5)
+
+	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"signinRequest"} )
 	public void billingAndDeliveryAddress() {
 		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), "John Doe");
 		Assert.assertEquals(summary.getCartSummBillingAdressOne().getText(), "Centar");
@@ -95,25 +96,21 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), "066");
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6, description="Terms of Service.", dependsOnMethods={"billingAndDeliveryAddress"} )
 	public void termsOfServiceModal() {
 		summary.getCartProceedBtnTwo().click();
 		summary.getCartProceedBtnTwo().click();
 
 		action.moveToElement(summary.getCartSummTermsOfServiceDialog()).perform();
-
 		Assert.assertTrue(summary.getCartSummTermsOfServiceDialog().isDisplayed());
-
 		action.moveToElement(summary.getCartSummTermsOfServiceDialogClose()).perform();
 		action.click(summary.getCartSummTermsOfServiceDialogClose()).build().perform();
-
 		driver.navigate().refresh();
-
 		summary.getCartSummTermsOfServiceCheck().click();
 		summary.getCartProceedBtnTwo().click();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 7, description="Payment", dependsOnMethods={"termsOfServiceModal"} )
 	public void payment() {
 		summary.getCartSummPayByBankWire().click();
 
@@ -125,7 +122,7 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertEquals(summary.getCartSummPayByCheckConfirm().getText(), "CHECK PAYMENT");
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 8, description="Confirm Order", dependsOnMethods={"payment"} )
 	public void confirmOrder() {
 		summary.getCartSummConfirmOrderBtn().click();
 
@@ -133,7 +130,7 @@ public class ShoppingSummerDress extends BaseTest {
 		Assert.assertEquals(summary.getCartSummSuccessMsg().getText(), "Your order on My Store is complete.");
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 9, description="Check Order History", dependsOnMethods={"confirmOrder"} )
 	public void checkIsOrderVisibleInOrderHistorySection() {
 		account.getAccountBtn().click();
 
@@ -147,5 +144,6 @@ public class ShoppingSummerDress extends BaseTest {
 		account.getAccountOrderHistoryBtn().click();
 
 		Assert.assertEquals(account.getAccountOrdersLis().size(), 1);
-	}*/
+	}
+
 }

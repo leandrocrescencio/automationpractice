@@ -15,7 +15,7 @@ public class PropertiesUtils {
 	
 	private static final Logger LOGGER = Logger.getLogger(PropertiesUtils.class);
 	private static Properties propertie = new Properties();
-	private static String PATH = StaticValues.PATH_PROJECT + "/src/test/resources/config.properties";
+	private static String PATH = StaticValues.PATH_PROJECT + "/src/test/resources/test.properties";
 
 	public static String getValue(String name) {
 		try {
