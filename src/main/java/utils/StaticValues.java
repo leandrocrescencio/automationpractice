@@ -18,8 +18,8 @@ public class StaticValues {
 		return TESTNAME;
 	}
 
-	public static void setTestName(String CLASS) {
-		TESTNAME = CLASS;
+	public static void setTestName(String className) {
+		TESTNAME = className;
 	}
 
 }
