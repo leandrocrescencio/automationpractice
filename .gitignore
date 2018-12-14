@@ -30,6 +30,7 @@ test-output/
 hs_err_pid*
 
 target/
+target/classes/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
