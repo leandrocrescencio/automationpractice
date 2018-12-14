@@ -60,6 +60,7 @@ public class BaseTest extends BaseOO {
 		setCreateAccountForm(driver);
 		setCreateAccount(driver);
 		setAccount(driver);
+		StaticValues.setCLASS("teste");
 	}
 		
 
@@ -79,10 +80,10 @@ public class BaseTest extends BaseOO {
 
 	    @BeforeMethod(alwaysRun = true)
 	    public void beforeMethod(Method method) {
-	        if (StaticValues.CLASS.equalsIgnoreCase("teste")) {
+	        if (StaticValues.getCLASS().equalsIgnoreCase("teste")) {
 	            setName(this.getClass().getSimpleName());
 	        }
-	        ExtentTestManager.startTest(method.getName(),StaticValues.CLASS);
+	        ExtentTestManager.startTest(method.getName(),StaticValues.getCLASS());
 	        if(!ExtentTestManager.getTest().getDescription().isEmpty()) {
 	            ExtentTestManager.getTest().log(LogStatus.INFO, ExtentTestManager.getTest().getDescription());
 	        }
@@ -110,13 +111,13 @@ public class BaseTest extends BaseOO {
 	                    ExtentTestManager.endTest();
 	                }
 	        }
-	        ExtentManager.getReporter(StaticValues.CLASS).endTest(ExtentTestManager.getTest());
-	        ExtentManager.getReporter(StaticValues.CLASS).flush();
+	        ExtentManager.getReporter(StaticValues.getCLASS()).endTest(ExtentTestManager.getTest());
+	        ExtentManager.getReporter(StaticValues.getCLASS()).flush();
 
 	    }
 
 	    public static void setName(String ct) {
-	        StaticValues.CLASS = ct;
+	        StaticValues.setCLASS(ct);
 	    }
 
 
