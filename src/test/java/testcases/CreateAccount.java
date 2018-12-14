@@ -18,13 +18,13 @@ public class CreateAccount extends BaseTest {
 		Assert.assertTrue(signin.getSignInForm().isDisplayed());
 		createAccount.setCreateAccountEmailField(PropertiesUtils.getValue("email"));
 		createAccount.getCreateAccountBtn().click();
-		Assert.assertTrue(createAccountForm.getAccountCreationForm().isDisplayed());
+		Assert.assertTrue(createAccountForm.getAccountCreationInput().isDisplayed());
 	
-		createAccountForm.setCustomerFirstNameField("Juarez");
-		createAccountForm.setCustomerLastNameField("Roth");
-		createAccountForm.setCustomerEmailField(PropertiesUtils.getValue("email"));
-		createAccountForm.setCustomerPasswordField(PropertiesUtils.getValue("pass"));
-		createAccountForm.getAccountCreationForm().click();		
+		createAccountForm.setCustomerFirstNameInput("Juarez");
+		createAccountForm.setCustomerLastNameInput("Roth");
+		createAccountForm.setCustomerEmailInput(PropertiesUtils.getValue("email"));
+		createAccountForm.setCustomerPasswordInput(PropertiesUtils.getValue("pass"));
+		createAccountForm.getAccountCreationInput().click();		
 		Assert.assertTrue(createAccountForm.getFirstNameHighlightedGreen().isDisplayed());
 		Assert.assertTrue(createAccountForm.getLastNameHighlightedGreen().isDisplayed());
 		Assert.assertTrue(createAccountForm.getEmailHighlightedGreen().isDisplayed());
@@ -33,22 +33,22 @@ public class CreateAccount extends BaseTest {
 		createAccountForm.selectCustomerDateOfBirthDay("6");
 		createAccountForm.selectCustomerDateOfBirthMonth("3");
 		createAccountForm.selectCustomerDateOfBirthYear("1985");	
-		createAccountForm.setPostalCodeField("21000");
-		createAccountForm.setHomePhoneField("056");
-		createAccountForm.setMobilePhoneField("065");
-		createAccountForm.setAddressField("Rua");
-		createAccountForm.setCityField("Santa Cecilia");
+		createAccountForm.setPostalCodeInput("21000");
+		createAccountForm.setHomePhoneInput("056");
+		createAccountForm.setMobilePhoneInput("065");
+		createAccountForm.setAddressInput("Rua");
+		createAccountForm.setCityInput("Santa Cecilia");
 		createAccountForm.selectState("7");
-		createAccountForm.setPostalCodeField("12345");
-		createAccountForm.setHomePhoneField("055");
-		createAccountForm.setMobilePhoneField("51999887720");
-		createAccountForm.setAddressAliasField("HOME");
+		createAccountForm.setPostalCodeInput("12345");
+		createAccountForm.setHomePhoneInput("055");
+		createAccountForm.setMobilePhoneInput("51999887720");
+		createAccountForm.setAddressAliasInput("HOME");
 		createAccountForm.getRegisterBtn().click();
 
 		Assert.assertTrue(createAccountForm.getEmailBeenRegistered().isDisplayed());
 
-		createAccountForm.setCustomerEmailField(PropertiesUtils.getValue("email"));
-		createAccountForm.setCustomerPasswordField(PropertiesUtils.getValue("pass"));
+		createAccountForm.setCustomerEmailInput(PropertiesUtils.getValue("email"));
+		createAccountForm.setCustomerPasswordInput(PropertiesUtils.getValue("pass"));
 		createAccountForm.getRegisterBtn().click();
 
 		Assert.assertTrue(createAccountForm.successfullyCreatedAccount().isDisplayed());

@@ -23,11 +23,11 @@ import pageobjects.Account;
 import pageobjects.Cart;
 import pageobjects.CartSummary;
 import pageobjects.CreateUser;
-import pageobjects.CreateUserForm;
+import pageobjects.CreateUserInput;
 import pageobjects.Dress;
 import pageobjects.Home;
 import pageobjects.ShoppingActions;
-import pageobjects.SignInForm;
+import pageobjects.SignInInput;
 import utils.ExtentManager;
 import utils.ExtentTestManager;
 import utils.PropertiesUtils;
@@ -42,12 +42,12 @@ public class BaseTest {
 	public Cart cart;
 	public ShoppingActions shoppingActions;
 	public CartSummary summary;
-	public SignInForm signinForm;
+	public SignInInput signinForm;
 	public Account account;
 	public Home homepage;
 	public CreateUser createAccount;
-	public CreateUserForm createAccountForm;
-	public SignInForm signin;
+	public CreateUserInput createAccountForm;
+	public SignInInput signin;
 	
 	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
 	
@@ -60,19 +60,19 @@ public class BaseTest {
 		dress = new Dress(driver);
 		cart = new Cart(driver);
 		shoppingActions = new ShoppingActions(driver);
-		signinForm = new SignInForm(driver);
+		signinForm = new SignInInput(driver);
 		summary = new CartSummary(driver);
 		account = new Account(driver);
 		homepage = new Home(driver);
 		createAccount = new CreateUser(driver);
-		createAccountForm = new CreateUserForm(driver);
-		signin = new SignInForm(driver);
+		createAccountForm = new CreateUserInput(driver);
+		signin = new SignInInput(driver);
 		account = new Account(driver);
 
 		driver.manage().window().maximize();
 		driver.get(PropertiesUtils.getValue("url"));
 	}
-
+	
 	@AfterClass
 	public void tearDown() {
 		account.getAccountLogout().click();

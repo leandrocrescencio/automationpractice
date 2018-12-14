@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ElementUtils {
+public class WebUtils {
 	
-	private ElementUtils() {
+	private WebUtils() {
 		throw new IllegalStateException("Utility class");
 	}
 	

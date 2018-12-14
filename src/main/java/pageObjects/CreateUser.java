@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import commom.ElementUtils;
+import commom.WebUtils;
 
 public class CreateUser {
 	
@@ -15,15 +15,15 @@ public class CreateUser {
 	}
 	
 	public WebElement getCreateAccountForm() {
-		return ElementUtils.elementWait(driver, By.id("create-account_form"), 30);
+		return WebUtils.elementWait(driver, By.id("create-account_form"), 30);
 	}
 	
 	public WebElement getCreatAccountEmailField() {
-		return ElementUtils.elementWait(driver, By.id("email_create"), 30);
+		return WebUtils.elementWait(driver, By.id("email_create"), 30);
 	}
 	
 	public WebElement getCreateAccountBtn() {
-		return ElementUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), 30);
+		return WebUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), 30);
 	}
 	
 	public void setCreateAccountEmailField(String email) {
@@ -33,10 +33,10 @@ public class CreateUser {
 	}
 	
 	public WebElement getEmailErrorMessage() {
-		return ElementUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid email address.\")]"), 30);
+		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid email address.\")]"), 30);
 	}
 	
 	public WebElement getEmailBeenRegistered() {
-		return ElementUtils.elementWait(driver, By.xpath("//li[contains(text(), \"An account using this email\")]"), 30);
+		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"An account using this email\")]"), 30);
 	}
 }
