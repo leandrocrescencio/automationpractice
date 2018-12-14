@@ -61,21 +61,18 @@ public class SummerDressFlow extends BaseTest {
 		action.moveToElement(summary.getCartProceedBtn()).perform();
 		summary.getCartProceedBtn().click();
 
-		Assert.assertTrue(signinForm.getSignInForm().isDisplayed());
+		Assert.assertTrue(signinForm.getSignInInput().isDisplayed());
 
-		signinForm.setEmailField(PropertiesUtils.getValue("email"));
-		signinForm.setPasswordField(PropertiesUtils.getValue("pass"));
+		signinForm.setEmailInput(PropertiesUtils.getValue("email"));
+		signinForm.setPasswordInput(PropertiesUtils.getValue("pass"));
 		signinForm.getSignInBtn().click();
 	}
 
 	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"signinRequest"} )
 	public void billingAndDeliveryAddress() {
-		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), "John Doe");
-		Assert.assertEquals(summary.getCartSummBillingAdressOne().getText(), "Centar");
-		Assert.assertEquals(summary.getCartSummBillingAdressCityState().getText(), "Novi Sad, Connecticut 21000");
-		Assert.assertEquals(summary.getCartSummBillingAdressCountry().getText(), "United States");
-		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), "056");
-		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), "066");
+		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), PropertiesUtils.getValue("firstname").concat(" ").concat(PropertiesUtils.getValue("lastname")));
+		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), "55");
+		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), "51999887720");
 	}
 
 	@Test(priority = 6, description="Terms of Service.", dependsOnMethods={"billingAndDeliveryAddress"} )

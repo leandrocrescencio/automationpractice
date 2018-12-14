@@ -14,15 +14,15 @@ public class SignInInput {
 		this.driver = driver;
 	}
 	
-	public WebElement getSignInForm() {
+	public WebElement getSignInInput() {
 		return WebUtils.elementWait(driver, By.id("login_form"), 30);
 	}
 	
-	public WebElement getSignInEmailField() {
+	public WebElement getSignInEmailInput() {
 		return WebUtils.elementWait(driver, By.id("email"), 30);
 	}
 	
-	public WebElement getSignInPasswordField() {
+	public WebElement getSignInPasswordInput() {
 		return WebUtils.elementWait(driver, By.id("passwd"), 30);
 	}
 	
@@ -31,43 +31,17 @@ public class SignInInput {
 	}
 	
 	
-	public void setEmailField(String mail) {
-		WebElement email = this.getSignInEmailField();
+	public void setEmailInput(String mail) {
+		WebElement email = this.getSignInEmailInput();
 		email.clear();
 		email.sendKeys(mail);
 	}
 	
-	public void setPasswordField(String pass) {
-		WebElement password = this.getSignInPasswordField();
+	public void setPasswordInput(String pass) {
+		WebElement password = this.getSignInPasswordInput();
 		password.clear();
 		password.sendKeys(pass);
 	}
 	
-	public WebElement getEmailRequiredError() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"An email address required.\")]"), 30);
-	}
-	
-	public WebElement getEmailInvalidError() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid email address.\")]"), 30);
-	}
-	
-	public WebElement getAuthenticationFailedError() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Authentication failed.\")]"), 30);
-	}
-	public WebElement getPasswordRequiredError() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Password is required.\")]"), 30);
-	}
-	
-	public WebElement getInvalidPasswordError() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid password\")]"), 30);
-	}
-	
-	
-	public WebElement getEmailHighlightedRed() {
-		return WebUtils.elementWait(driver, By.xpath("//div[@class=\"form-group form-error\"]//input[@id=\"email\"]"), 30);
-	}
-	
-	public WebElement getEmailHighlightedGreen() {
-		return WebUtils.elementWait(driver, By.xpath("//div[@class=\"form-group form-ok\"]//input[@id=\"email\"]"), 30);
-	}
+
 }

@@ -35,27 +35,26 @@ import utils.StaticValues;
 
 public class BaseTest {
 	
-	public WebDriver driver;
-	public Actions action;
-	
-	public Dress dress;
-	public Cart cart;
-	public ShoppingActions shoppingActions;
-	public CartSummary summary;
-	public SignInInput signinForm;
-	public Account account;
-	public Home homepage;
-	public CreateUser createAccount;
-	public CreateUserInput createAccountForm;
-	public SignInInput signin;
-	
+	public static WebDriver driver;
+	public static Actions action;
+
+	public static Dress dress;
+	public static Cart cart;
+	public static ShoppingActions shoppingActions;
+	public static CartSummary summary;
+	public static SignInInput signinForm;
+	public static Account account;
+	public static Home homepage;
+	public static CreateUser createAccount;
+	public static CreateUserInput createAccountForm;
+	public static SignInInput signin;
+
 	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
 	
 	@BeforeClass
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", PropertiesUtils.getValue("driver"));
 		driver = new ChromeDriver();
-
 		action = new Actions(driver);
 		dress = new Dress(driver);
 		cart = new Cart(driver);
@@ -72,11 +71,11 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		driver.get(PropertiesUtils.getValue("url"));
 	}
-	
+
 	@AfterClass
 	public void tearDown() {
-		account.getAccountLogout().click();
-		driver.quit();
+		//account.getAccountLogout().click();
+		//driver.quit();
 	}
 	
 	

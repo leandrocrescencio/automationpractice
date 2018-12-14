@@ -18,7 +18,7 @@ public class CreateUser {
 		return WebUtils.elementWait(driver, By.id("create-account_form"), 30);
 	}
 	
-	public WebElement getCreatAccountEmailField() {
+	public WebElement getCreatAccountEmailInput() {
 		return WebUtils.elementWait(driver, By.id("email_create"), 30);
 	}
 	
@@ -26,17 +26,10 @@ public class CreateUser {
 		return WebUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), 30);
 	}
 	
-	public void setCreateAccountEmailField(String email) {
-		WebElement element = this.getCreatAccountEmailField();
+	public void setCreateAccountEmailInput(String email) {
+		WebElement element = this.getCreatAccountEmailInput();
 		element.clear();
 		element.sendKeys(email);
 	}
-	
-	public WebElement getEmailErrorMessage() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"Invalid email address.\")]"), 30);
-	}
-	
-	public WebElement getEmailBeenRegistered() {
-		return WebUtils.elementWait(driver, By.xpath("//li[contains(text(), \"An account using this email\")]"), 30);
-	}
+
 }
