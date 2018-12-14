@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import commom.WebUtils;
-import utils.StaticValues;
+import utils.WebUtils;
 
 public class Home {
 	
@@ -17,18 +16,18 @@ public class Home {
 	}
 	
 	public WebElement getSignInButton() {
-		return WebUtils.clickWait(driver, By.xpath("//a[contains(text(), \"Sign in\")]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//a[contains(text(), \"Sign in\")]"));
 	}
 	
 	public WebElement getHomePageSlider() {
-		return WebUtils.elementWait(driver, By.id("homepage-slider"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("homepage-slider"));
 	}
 	
 	public WebElement getContainerPopular() {
-		return WebUtils.elementWait(driver, By.id("homefeatured"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("homefeatured"));
 	}
 	
 	public WebElement getFooterBaners() {
-		return WebUtils.elementWait(driver, By.id("htmlcontent_home"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("htmlcontent_home"));
 	}	
 }

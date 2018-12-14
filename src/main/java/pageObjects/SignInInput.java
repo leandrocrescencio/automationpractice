@@ -4,8 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import commom.WebUtils;
-import utils.StaticValues;
+import utils.WebUtils;
 
 public class SignInInput {
 	
@@ -16,19 +15,19 @@ public class SignInInput {
 	}
 	
 	public WebElement getSignInInput() {
-		return WebUtils.elementWait(driver, By.id("login_form"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("login_form"));
 	}
 	
 	public WebElement getSignInEmailInput() {
-		return WebUtils.elementWait(driver, By.id("email"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("email"));
 	}
 	
 	public WebElement getSignInPasswordInput() {
-		return WebUtils.elementWait(driver, By.id("passwd"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("passwd"));
 	}
 	
 	public WebElement getSignInButton() {
-		return WebUtils.elementWait(driver, By.id("SubmitLogin"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("SubmitLogin"));
 	}
 	
 	public void setEmailInput(String mail) {
