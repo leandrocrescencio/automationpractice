@@ -7,7 +7,6 @@ import java.lang.reflect.Method;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -25,14 +24,14 @@ import utils.StaticValues;
 
 public class BaseTest extends BaseOO {
 	
-	public WebDriver driver;
-
 	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
 	
 	@BeforeClass
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", PropertiesUtils.getValue("driver"));
-		driver = new ChromeDriver();
+		setDriver();
+		driver = getDriver();
+		
 		init(driver);
 		action = getAction();
 		dress = getDress();

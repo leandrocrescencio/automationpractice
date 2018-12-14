@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commom.WebUtils;
+import utils.StaticValues;
 
 public class CreateUser {
 	
@@ -15,15 +16,15 @@ public class CreateUser {
 	}
 	
 	public WebElement getCreateAccountForm() {
-		return WebUtils.elementWait(driver, By.id("create-account_form"), 30);
+		return WebUtils.elementWait(driver, By.id("create-account_form"), StaticValues.TIMEOUT);
 	}
 	
 	public WebElement getCreatAccountEmailInput() {
-		return WebUtils.elementWait(driver, By.id("email_create"), 30);
+		return WebUtils.elementWait(driver, By.id("email_create"), StaticValues.TIMEOUT);
 	}
 	
 	public WebElement getCreateAccountBtn() {
-		return WebUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), 30);
+		return WebUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), StaticValues.TIMEOUT);
 	}
 	
 	public void setCreateAccountEmailInput(String email) {

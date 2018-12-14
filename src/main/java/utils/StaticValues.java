@@ -10,6 +10,8 @@ public class StaticValues {
 
 	public static final String OS = System.getProperty("os.name");
 
+	public static final int TIMEOUT = 30;
+	
 	public static String CLASS = "teste";
 
 }

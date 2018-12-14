@@ -1,6 +1,7 @@
 package commom;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import pageobjects.Account;
@@ -14,6 +15,7 @@ import pageobjects.ShoppingActions;
 import pageobjects.SignInInput;
 
 public class BaseOO {
+	protected WebDriver driver;
 	
 	protected Actions action;
 	protected Dress dress;
@@ -25,6 +27,13 @@ public class BaseOO {
 	protected Home homepage;
 	protected CreateUser createAccount;
 	protected CreateUserInput createAccountInput;
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public void setDriver() {
+		this.driver = new ChromeDriver();
+	}
 	
 	public Actions getAction() {
 		return action;
