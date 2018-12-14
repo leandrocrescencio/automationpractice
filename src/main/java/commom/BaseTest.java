@@ -60,7 +60,7 @@ public class BaseTest extends BaseOO {
 		setCreateAccountForm(driver);
 		setCreateAccount(driver);
 		setAccount(driver);
-		StaticValues.setCLASS("teste");
+		StaticValues.setTestName("teste");
 	}
 		
 
@@ -74,16 +74,16 @@ public class BaseTest extends BaseOO {
 	 @BeforeSuite(alwaysRun = true)
 	    public void extentSetup(ITestContext context) {
 	        if (!context.getName().contains("Default") && !context.getName().contains("Surefire")) {
-	            setName(context.getName());
+	        	 StaticValues.setTestName(context.getName());
 	        }
 	    }
 
 	    @BeforeMethod(alwaysRun = true)
 	    public void beforeMethod(Method method) {
-	        if (StaticValues.getCLASS().equalsIgnoreCase("teste")) {
-	            setName(this.getClass().getSimpleName());
+	        if (StaticValues.getTestName().equalsIgnoreCase("teste")) {
+	        	 StaticValues.setTestName(this.getClass().getSimpleName());
 	        }
-	        ExtentTestManager.startTest(method.getName(),StaticValues.getCLASS());
+	        ExtentTestManager.startTest(method.getName(),StaticValues.getTestName());
 	        if(!ExtentTestManager.getTest().getDescription().isEmpty()) {
 	            ExtentTestManager.getTest().log(LogStatus.INFO, ExtentTestManager.getTest().getDescription());
 	        }
@@ -111,13 +111,9 @@ public class BaseTest extends BaseOO {
 	                    ExtentTestManager.endTest();
 	                }
 	        }
-	        ExtentManager.getReporter(StaticValues.getCLASS()).endTest(ExtentTestManager.getTest());
-	        ExtentManager.getReporter(StaticValues.getCLASS()).flush();
+	        ExtentManager.getReporter(StaticValues.getTestName()).endTest(ExtentTestManager.getTest());
+	        ExtentManager.getReporter(StaticValues.getTestName()).flush();
 
-	    }
-
-	    public static void setName(String ct) {
-	        StaticValues.setCLASS(ct);
 	    }
 
 

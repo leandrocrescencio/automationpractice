@@ -12,14 +12,14 @@ public class StaticValues {
 
 	public static final int TIMEOUT = 30;
 	
-	protected static String CLASS;
+	protected static String TESTNAME;
 
-	public static String getCLASS() {
-		return CLASS;
+	public static String getTestName() {
+		return TESTNAME;
 	}
 
-	public static void setCLASS(String cLASS) {
-		CLASS = cLASS;
+	public static void setTestName(String CLASS) {
+		TESTNAME = CLASS;
 	}
 
 }

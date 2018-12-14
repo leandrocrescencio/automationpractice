@@ -15,7 +15,7 @@ public class ExtentTestManager {
 	
 	@SuppressWarnings("rawtypes")
 	static Map extentTestMap = new HashMap();
-	static ExtentReports extent = ExtentManager.getReporter(StaticValues.CLASS);
+	static ExtentReports extent = ExtentManager.getReporter(StaticValues.TESTNAME);
 
 	public static synchronized ExtentTest getTest() {
 		return (ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId()));
