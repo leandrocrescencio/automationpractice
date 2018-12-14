@@ -8,7 +8,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -19,35 +18,14 @@ import org.testng.annotations.BeforeSuite;
 
 import com.relevantcodes.extentreports.LogStatus;
 
-import pageobjects.Account;
-import pageobjects.Cart;
-import pageobjects.CartSummary;
-import pageobjects.CreateUser;
-import pageobjects.CreateUserInput;
-import pageobjects.Dress;
-import pageobjects.Home;
-import pageobjects.ShoppingActions;
-import pageobjects.SignInInput;
 import utils.ExtentManager;
 import utils.ExtentTestManager;
 import utils.PropertiesUtils;
 import utils.StaticValues;
 
-public class BaseTest {
+public class BaseTest extends BaseOO {
 	
-	public static WebDriver driver;
-	public static Actions action;
-
-	public static Dress dress;
-	public static Cart cart;
-	public static ShoppingActions shoppingActions;
-	public static CartSummary summary;
-	public static SignInInput signinForm;
-	public static Account account;
-	public static Home homepage;
-	public static CreateUser createAccount;
-	public static CreateUserInput createAccountForm;
-	public static SignInInput signin;
+	public WebDriver driver;
 
 	protected static final Log LOG = LogFactory.getLog(BaseTest.class);
 	
@@ -55,27 +33,41 @@ public class BaseTest {
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", PropertiesUtils.getValue("driver"));
 		driver = new ChromeDriver();
-		action = new Actions(driver);
-		dress = new Dress(driver);
-		cart = new Cart(driver);
-		shoppingActions = new ShoppingActions(driver);
-		signinForm = new SignInInput(driver);
-		summary = new CartSummary(driver);
-		account = new Account(driver);
-		homepage = new Home(driver);
-		createAccount = new CreateUser(driver);
-		createAccountForm = new CreateUserInput(driver);
-		signin = new SignInInput(driver);
-		account = new Account(driver);
+		init(driver);
+		action = getAction();
+		dress = getDress();
+		cart = getCart();
+		shoppingActions = getShoppingActions();
+		summary = getSummary();
+		account = getAccount();
+		homepage = getHomepage();
+		createAccount = getCreateAccount();
+		createAccountInput = getCreateAccountInput();
+		signin = getSignin();
+		account = getAccount();
 
 		driver.manage().window().maximize();
 		driver.get(PropertiesUtils.getValue("url"));
 	}
+	
+	public void init(WebDriver driver) {
+		setAction(driver);
+		setDress(driver);
+		setCart(driver);
+		setShoppingActions(driver);
+		setSummary(driver);
+		setHomepage(driver);
+		setSignin(driver);
+		setCreateAccountForm(driver);
+		setCreateAccount(driver);
+		setAccount(driver);
+	}
+		
 
 	@AfterClass
 	public void tearDown() {
-		//account.getAccountLogout().click();
-		//driver.quit();
+		account.getAccountLogout().click();
+		driver.quit();
 	}
 	
 	

@@ -61,11 +61,11 @@ public class SummerDressFlow extends BaseTest {
 		action.moveToElement(summary.getCartProceedBtn()).perform();
 		summary.getCartProceedBtn().click();
 
-		Assert.assertTrue(signinForm.getSignInInput().isDisplayed());
+		Assert.assertTrue(signin.getSignInInput().isDisplayed());
 
-		signinForm.setEmailInput(PropertiesUtils.getValue("email"));
-		signinForm.setPasswordInput(PropertiesUtils.getValue("pass"));
-		signinForm.getSignInBtn().click();
+		signin.setEmailInput(PropertiesUtils.getValue("email"));
+		signin.setPasswordInput(PropertiesUtils.getValue("pass"));
+		signin.getSignInBtn().click();
 	}
 
 	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"signinRequest"} )
