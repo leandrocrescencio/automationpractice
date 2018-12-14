@@ -18,15 +18,15 @@ public class Dress {
 	}
 	
 	
-	public WebElement getWomenBtn() {
+	public WebElement getWomenButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getDressesBtn() {
+	public WebElement getDressesButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getTShirtsBtn() {
+	public WebElement getTShirtsButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[3]"), StaticValues.TIMEOUT);
 	}
 	
@@ -34,15 +34,15 @@ public class Dress {
 		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCasualDressesBtn() {
+	public WebElement getCasualDressesButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]//a[contains(text(), \"Casual Dresses\")]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getEveningDressesBtn() {
+	public WebElement getEveningDressesButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]//a[contains(text(), \"Evening Dresses\")]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getSummerDressesBtn() {
+	public WebElement getSummerDressesButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]//a[contains(text(), \"Summer Dresses\")]"), StaticValues.TIMEOUT);
 	}
 	

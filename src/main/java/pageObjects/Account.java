@@ -17,7 +17,7 @@ public class Account {
 		this.driver = driver;
 	}
 	
-	public WebElement getAccountBtn() {
+	public WebElement getAccountButton() {
 		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"View my customer account\"]"), StaticValues.TIMEOUT);
 	}
 	
@@ -25,7 +25,7 @@ public class Account {
 		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"Log me out\"]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getAccountOrderHistoryBtn() {
+	public WebElement getAccountOrderHistoryButton() {
 		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Order history and details\")]"), StaticValues.TIMEOUT);
 	}
 	

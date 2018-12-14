@@ -27,7 +27,7 @@ public class SignInInput {
 		return WebUtils.elementWait(driver, By.id("passwd"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getSignInBtn() {
+	public WebElement getSignInButton() {
 		return WebUtils.elementWait(driver, By.id("SubmitLogin"), StaticValues.TIMEOUT);
 	}
 	

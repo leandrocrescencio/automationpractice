@@ -109,7 +109,7 @@ public class CreateUserInput {
 		return WebUtils.elementWait(driver, By.id("alias"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getRegisterBtn() {
+	public WebElement getRegisterButton() {
 		return WebUtils.clickWait(driver, By.id("submitAccount"), StaticValues.TIMEOUT);
 	}
 	

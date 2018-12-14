@@ -15,7 +15,7 @@ public class CreateUser {
 		this.driver = driver;
 	}
 	
-	public WebElement getCreateAccountForm() {
+	public WebElement getCreateAccountInput() {
 		return WebUtils.elementWait(driver, By.id("create-account_form"), StaticValues.TIMEOUT);
 	}
 	
@@ -23,7 +23,7 @@ public class CreateUser {
 		return WebUtils.elementWait(driver, By.id("email_create"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCreateAccountBtn() {
+	public WebElement getCreateAccountButton() {
 		return WebUtils.clickWait(driver, By.xpath("//button[@id=\"SubmitCreate\"]"), StaticValues.TIMEOUT);
 	}
 	

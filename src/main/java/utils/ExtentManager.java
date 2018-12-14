@@ -22,7 +22,7 @@ public class ExtentManager {
         return extent;
     }
     
-   public synchronized static ExtentReports getReporter(String testName) {
+   public static synchronized ExtentReports getReporter(String testName) {
         if (extent == null) {
             extent = new ExtentReports(filePathMethod(testName), false);
             createInstance(testName);

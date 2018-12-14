@@ -51,7 +51,7 @@ public class CartSummary {
 		return WebUtils.elementWait(driver, By.xpath("//table[@id=\"cart_summary\"]/tbody/tr[" + numOfProduct + "]//td[@data-title=\"Total\"]/span[@class=\"price\"]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCartSummDeleteBtn(int numOfProduct) {
+	public WebElement getCartSummDeleteButton(int numOfProduct) {
 		return WebUtils.elementWait(driver, By.xpath("//table[@id=\"cart_summary\"]/tbody/tr[" + numOfProduct + "]//td[@data-title=\"Delete\"]"), StaticValues.TIMEOUT);
 	}
 	
@@ -75,15 +75,15 @@ public class CartSummary {
 		return WebUtils.elementWait(driver, By.xpath("//p[contains(text(), \"Your shopping cart is empty.\")]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCartProceedBtn() {
+	public WebElement getCartProceedButton() {
 		return WebUtils.clickWait(driver, By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCartProceedPreviousBtn() {
+	public WebElement getCartProceedPreviousButton() {
 		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"Previous\"]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCartProceedBtnTwo() {
+	public WebElement getCartProceedButton2() {
 		return WebUtils.clickWait(driver, By.xpath("//button[@type=\"submit\"]/span[contains(text(), \"Proceed to checkout\")]"), StaticValues.TIMEOUT);
 	}
 	
@@ -143,7 +143,7 @@ public class CartSummary {
 		return WebUtils.elementWait(driver, By.xpath("//h3[contains(text(), \"Check payment\")]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getCartSummConfirmOrderBtn() {
+	public WebElement getCartSummConfirmOrderButton() {
 		return WebUtils.clickWait(driver, By.xpath("//button[@type=\"submit\"]/span[contains(text(), \"I confirm my order\")]"), StaticValues.TIMEOUT);
 	}
 	

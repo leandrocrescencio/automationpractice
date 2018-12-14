@@ -16,7 +16,7 @@ public class Home {
 		this.driver = driver;
 	}
 	
-	public WebElement getSignInBtn() {
+	public WebElement getSignInButton() {
 		return WebUtils.clickWait(driver, By.xpath("//a[contains(text(), \"Sign in\")]"), StaticValues.TIMEOUT);
 	}
 	

@@ -10,14 +10,14 @@ public class CreateAccount extends BaseTest {
 
 	@Test(priority = 1, description="Create New User Account")
 	public void createNewUser() {
-		homepage.getSignInBtn().click();
+		homepage.getSignInButton().click();
 
-		Assert.assertTrue(createAccount.getCreateAccountForm().isDisplayed());
+		Assert.assertTrue(createAccount.getCreateAccountInput().isDisplayed());
 		Assert.assertTrue(createAccount.getCreatAccountEmailInput().isDisplayed());
-		Assert.assertTrue(createAccount.getCreateAccountBtn().isDisplayed());
+		Assert.assertTrue(createAccount.getCreateAccountButton().isDisplayed());
 		Assert.assertTrue(signin.getSignInInput().isDisplayed());
 		createAccount.setCreateAccountEmailInput(PropertiesUtils.getValue("email"));
-		createAccount.getCreateAccountBtn().click();
+		createAccount.getCreateAccountButton().click();
 		Assert.assertTrue(createAccountInput.getAccountCreationInput().isDisplayed());
 	
 		createAccountInput.setCustomerFirstNameInput(PropertiesUtils.getValue("firstname"));
@@ -40,7 +40,7 @@ public class CreateAccount extends BaseTest {
 		createAccountInput.setHomePhoneInput("55");
 		createAccountInput.setMobilePhoneInput("51999887720");
 		createAccountInput.setAddressAliasInput("HOME");
-		createAccountInput.getRegisterBtn().click();
+		createAccountInput.getRegisterButton().click();
 
 		Assert.assertTrue(createAccountInput.successfullyCreatedAccount().isDisplayed());
 	}

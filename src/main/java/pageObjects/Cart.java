@@ -44,7 +44,7 @@ public class Cart {
 		return WebUtils.elementWait(driver, By.xpath("//span[@class=\"price cart_block_total ajax_block_cart_total\"]"), 30);
 	}
 	
-	public WebElement getCartTabCheckOutBtn() {
+	public WebElement getCartTabCheckOutButton() {
 		return WebUtils.clickWait(driver, By.xpath("//a[@id=\"button_order_cart\"]/span[contains(text(), \"Check out\")]"), 30);
 	}
 	

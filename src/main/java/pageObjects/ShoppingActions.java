@@ -15,7 +15,7 @@ public class ShoppingActions {
 		this.driver = driver;
 	}
 	
-	public WebElement getAddToCartBtn() {
+	public WebElement getAddToCartButton() {
 		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li//span[contains(text(), \"Add to cart\")]"), StaticValues.TIMEOUT);
 	}
 	
@@ -23,11 +23,11 @@ public class ShoppingActions {
 		return WebUtils.elementWait(driver, By.id("layer_cart"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getContinueShopingBtn() {
+	public WebElement getContinueShopingButton() {
 		return WebUtils.clickWait(driver, By.xpath("//span[@title=\"Continue shopping\"]"), StaticValues.TIMEOUT);
 	}
 	
-	public WebElement getProceedToCheckoutBtn() {
+	public WebElement getProceedToCheckoutButton() {
 		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Proceed to checkout\")]"), StaticValues.TIMEOUT);
 	}
 	
