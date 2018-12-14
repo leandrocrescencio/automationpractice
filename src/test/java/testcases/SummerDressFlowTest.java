@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import commom.BaseTest;
 import utils.PropertiesUtils;
 
-public class SummerDressFlow extends BaseTest {
+public class SummerDressFlowTest extends BaseTest {
 
 	@Test(priority = 1, description="Select Dress")
 	public void selectDress() {
@@ -53,22 +53,55 @@ public class SummerDressFlow extends BaseTest {
 		Assert.assertTrue(summary.getCartSummQtyPlus(1).isDisplayed());
 		Assert.assertTrue(summary.getCartSummQtyMinus(1).isDisplayed());
 		Assert.assertTrue(summary.getCartSummQtyInput(1).isDisplayed());
-	}
-
-	@Test(priority = 4, description="Sign In.", dependsOnMethods={"checkSummary"} )
-	public void signinRequest() {
-
+		
 		action.moveToElement(summary.getCartProceedButton()).perform();
 		summary.getCartProceedButton().click();
 
-		Assert.assertTrue(signin.getSignInInput().isDisplayed());
-
-		signin.setEmailInput(PropertiesUtils.getValue("email"));
-		signin.setPasswordInput(PropertiesUtils.getValue("pass"));
-		signin.getSignInButton().click();
 	}
 
-	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"signinRequest"} )
+	@Test(priority = 4, description="Create New User Account" , dependsOnMethods={"checkSummary"} )
+	public void createNewUser() {
+		homepage.getSignInButton().click();
+
+		Assert.assertTrue(createAccount.getCreateAccountInput().isDisplayed());
+		Assert.assertTrue(createAccount.getCreatAccountEmailInput().isDisplayed());
+		Assert.assertTrue(createAccount.getCreateAccountButton().isDisplayed());
+		Assert.assertTrue(signin.getSignInInput().isDisplayed());
+		createAccount.setCreateAccountEmailInput(PropertiesUtils.getValue("email"));
+		createAccount.getCreateAccountButton().click();
+		Assert.assertTrue(createAccountInput.getAccountCreationInput().isDisplayed());
+	
+		createAccountInput.setCustomerFirstNameInput(PropertiesUtils.getValue("firstname"));
+		createAccountInput.setCustomerLastNameInput(PropertiesUtils.getValue("lastname"));
+		createAccountInput.setCustomerEmailInput(PropertiesUtils.getValue("email"));
+		createAccountInput.setCustomerPasswordInput(PropertiesUtils.getValue("pass"));
+		createAccountInput.getAccountCreationInput().click();		
+	
+
+		createAccountInput.selectCustomerDateOfBirthDay("6");
+		createAccountInput.selectCustomerDateOfBirthMonth("3");
+		createAccountInput.selectCustomerDateOfBirthYear("1985");	
+		createAccountInput.setPostalCodeInput("12345");
+		createAccountInput.setHomePhoneInput("55");
+		createAccountInput.setMobilePhoneInput("51999887720");
+		createAccountInput.setAddressInput("Rua");
+		createAccountInput.setCityInput("Santa Cecilia");
+		createAccountInput.selectState("7");
+		createAccountInput.setPostalCodeInput("12345");
+		createAccountInput.setHomePhoneInput("55");
+		createAccountInput.setMobilePhoneInput("51999887720");
+		createAccountInput.setAddressAliasInput("HOME");
+		createAccountInput.getRegisterButton().click();
+
+		//Assert.assertTrue(createAccountInput.successfullyCreatedAccount().isDisplayed());
+		
+		action.moveToElement(summary.getCartSummaryTable()).perform();
+		action.moveToElement(summary.getCartProceedButton()).perform();
+		summary.getCartProceedButton().click();
+		
+	}
+	
+	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"createNewUser"} )
 	public void billingAndDeliveryAddress() {
 		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), PropertiesUtils.getValue("firstname").concat(" ").concat(PropertiesUtils.getValue("lastname")));
 		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), "55");
