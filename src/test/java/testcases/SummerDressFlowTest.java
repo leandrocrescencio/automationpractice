@@ -27,21 +27,10 @@ public class SummerDressFlowTest extends BaseTest {
 		action.click(shoppingActions.getAddToCartButton()).build().perform();
 		action.click(shoppingActions.getProceedToCheckoutButton()).build().perform();
 		action.moveToElement(cart.getCartTab()).perform();
-		Assert.assertEquals(cart.getCartProductsQty().size(), 1);
+		Assert.assertEquals(cart.getCartTotalProductsQty().size(), 1);
 	}
 
-	@Test(priority = 2, description="Check Cart.", dependsOnMethods={"selectDress"} )
-	public void checkingCartProductsQtyAndPrice() {
-		action.moveToElement(cart.getCartTab()).perform();
-		action.moveToElement(cart.getCartProductsQty(1)).perform();
-		Assert.assertEquals(cart.getCartProductsQty(1).getText(), "1");
-		action.moveToElement(cart.getCartShipingCost()).perform();
-		Assert.assertEquals(cart.getCartShipingCost().getText(), "$2.00");
-		action.moveToElement(cart.getCartTotalPrice()).perform();
-		Assert.assertEquals(cart.getCartTotalPrice().getText(), "$30.98");
-	}
-
-	@Test(priority = 3, description="Check Summary.", dependsOnMethods={"checkingCartProductsQtyAndPrice"} )
+	@Test(priority = 2, description="Check Summary.", dependsOnMethods={"selectDress"} )
 	public void checkSummary() {
 		action.moveToElement(summary.getCartSummaryTable()).perform();
 
@@ -59,7 +48,7 @@ public class SummerDressFlowTest extends BaseTest {
 
 	}
 
-	@Test(priority = 4, description="Create New User Account" , dependsOnMethods={"checkSummary"} )
+	@Test(priority = 3, description="Create New User Account" , dependsOnMethods={"checkSummary"} )
 	public void createNewUser() {
 		homepage.getSignInButton().click();
 
@@ -93,7 +82,6 @@ public class SummerDressFlowTest extends BaseTest {
 		createAccountInput.setAddressAliasInput("HOME");
 		createAccountInput.getRegisterButton().click();
 
-		//Assert.assertTrue(createAccountInput.successfullyCreatedAccount().isDisplayed());
 		
 		action.moveToElement(summary.getCartSummaryTable()).perform();
 		action.moveToElement(summary.getCartProceedButton()).perform();
@@ -101,14 +89,14 @@ public class SummerDressFlowTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 5, description="Billing Details.", dependsOnMethods={"createNewUser"} )
+	@Test(priority = 4, description="Billing Details.", dependsOnMethods={"createNewUser"} )
 	public void billingAndDeliveryAddress() {
 		Assert.assertEquals(summary.getCartSummBillingAdressName().getText(), PropertiesUtils.getValue("firstname").concat(" ").concat(PropertiesUtils.getValue("lastname")));
 		Assert.assertEquals(summary.getCartSummBillingAdressHomePhone().getText(), "55");
 		Assert.assertEquals(summary.getCartSummBillingAdressMobile().getText(), "51999887720");
 	}
 
-	@Test(priority = 6, description="Terms of Service.", dependsOnMethods={"billingAndDeliveryAddress"} )
+	@Test(priority = 5, description="Terms of Service.", dependsOnMethods={"billingAndDeliveryAddress"} )
 	public void termsOfServiceModal() {
 		summary.getCartProceedButton2().click();
 		summary.getCartProceedButton2().click();
@@ -122,7 +110,7 @@ public class SummerDressFlowTest extends BaseTest {
 		summary.getCartProceedButton2().click();
 	}
 
-	@Test(priority = 7, description="Payment", dependsOnMethods={"termsOfServiceModal"} )
+	@Test(priority = 6, description="Payment", dependsOnMethods={"termsOfServiceModal"} )
 	public void payment() {
 		summary.getCartSummPayByBankWire().click();
 
@@ -134,7 +122,7 @@ public class SummerDressFlowTest extends BaseTest {
 		Assert.assertEquals(summary.getCartSummPayByCheckConfirm().getText(), "CHECK PAYMENT");
 	}
 
-	@Test(priority = 8, description="Confirm Order", dependsOnMethods={"payment"} )
+	@Test(priority = 7, description="Confirm Order", dependsOnMethods={"payment"} )
 	public void confirmOrder() {
 		summary.getCartSummConfirmOrderButton().click();
 
@@ -142,7 +130,7 @@ public class SummerDressFlowTest extends BaseTest {
 		Assert.assertEquals(summary.getCartSummSuccessMsg().getText(), "Your order on My Store is complete.");
 	}
 
-	@Test(priority = 9, description="Check Order History", dependsOnMethods={"confirmOrder"} )
+	@Test(priority = 8, description="Check Order History", dependsOnMethods={"confirmOrder"} )
 	public void checkIsOrderVisibleInOrderHistorySection() {
 		boolean checkedItems = false;
 		account.getAccountButton().click();

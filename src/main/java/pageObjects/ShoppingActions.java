@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commom.WebUtils;
-import utils.StaticValues;
 
 public class ShoppingActions {
 	
@@ -16,22 +15,22 @@ public class ShoppingActions {
 	}
 	
 	public WebElement getAddToCartButton() {
-		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li//span[contains(text(), \"Add to cart\")]"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"center_column\"]/ul/li//span[contains(text(), \"Add to cart\")]"));
 	}
 	
 	public WebElement getAddedToCartModal() {
-		return WebUtils.elementWait(driver, By.id("layer_cart"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("layer_cart"));
 	}
 	
 	public WebElement getContinueShopingButton() {
-		return WebUtils.clickWait(driver, By.xpath("//span[@title=\"Continue shopping\"]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//span[@title=\"Continue shopping\"]"));
 	}
 	
 	public WebElement getProceedToCheckoutButton() {
-		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Proceed to checkout\")]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Proceed to checkout\")]"));
 	}
 	
 	public WebElement getSuccessfullyAddedMessage() {
-		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[1]/h2"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[1]/h2"));
 	}
 }

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commom.WebUtils;
-import utils.StaticValues;
 
 public class Account {
 	
@@ -18,19 +17,19 @@ public class Account {
 	}
 	
 	public WebElement getAccountButton() {
-		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"View my customer account\"]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"View my customer account\"]"));
 	}
 	
 	public WebElement getAccountLogout() {
-		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"Log me out\"]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//a[@title=\"Log me out\"]"));
 	}
 	
 	public WebElement getAccountOrderHistoryButton() {
-		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Order history and details\")]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//span[contains(text(), \"Order history and details\")]"));
 	}
 	
 	public WebElement getAccountOrderListTable() {
-		return WebUtils.clickWait(driver, By.xpath("//table[@id=\"order-list\"]"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.xpath("//table[@id=\"order-list\"]"));
 	}
 	
 	public List<WebElement> getAccountOrdersLis() {

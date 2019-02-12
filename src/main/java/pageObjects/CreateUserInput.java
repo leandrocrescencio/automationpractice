@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import commom.WebUtils;
-import utils.StaticValues;
 
 public class CreateUserInput {
 	
@@ -18,103 +17,103 @@ public class CreateUserInput {
 	
 	
 	public WebElement getAccountCreationInput() {
-		return WebUtils.elementWait(driver, By.id("account-creation_form"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("account-creation_form"));
 	}
 	
 	public WebElement getCustomerTitleMr() {
-		return WebUtils.clickWait(driver, By.id("uniform-id_gender1"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.id("uniform-id_gender1"));
 	}
 	
 	public WebElement getCustomerTitleMrs() {
-		return WebUtils.clickWait(driver, By.id("uniform-id_gender2"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.id("uniform-id_gender2"));
 	}
 	
 	public WebElement getCustomerFirstNameInput() {
-		return WebUtils.elementWait(driver, By.id("customer_firstname"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("customer_firstname"));
 	}
 	
 	public WebElement getCustomerLastNameInput() {
-		return WebUtils.elementWait(driver, By.id("customer_lastname"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("customer_lastname"));
 	}
 	
 	public WebElement getCustomerEmailInput() {
-		return WebUtils.elementWait(driver, By.id("email"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("email"));
 	}
 	
 	public WebElement getCustomerPasswordInput() {
-		return WebUtils.elementWait(driver, By.id("passwd"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("passwd"));
 	}
 	
 	public Select selectCustomerDateOfBirthDay() {
-		return new Select(WebUtils.elementWait(driver, By.id("days"), 30));
+		return new Select(WebUtils.elementWait(driver, By.id("days")));
 	}
 
 	public Select selectCustomerDateOfBirthMonth() {
-		return new Select(WebUtils.elementWait(driver, By.id("months"), 30));
+		return new Select(WebUtils.elementWait(driver, By.id("months")));
 	}
 		
 	public Select selectCustomerDateOfBirthYear() {
-		return new Select(WebUtils.elementWait(driver, By.id("years"), 30));
+		return new Select(WebUtils.elementWait(driver, By.id("years")));
 	}
 	
 	public WebElement getFirstNameInput() {
-		return WebUtils.elementWait(driver, By.id("firstname"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("firstname"));
 	}
 	
 	public WebElement getLastNameInput() {
-		return WebUtils.elementWait(driver, By.id("lastname"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("lastname"));
 	}
 	
 	public WebElement getCompanyInput() {
-		return WebUtils.elementWait(driver, By.id("company"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("company"));
 	}
 	
 	public WebElement getAddressInput() {
-		return WebUtils.elementWait(driver, By.id("address1"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("address1"));
 	}
 	
 	public WebElement getAddressInput2() {
-		return WebUtils.elementWait(driver, By.name("address2"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.name("address2"));
 	}
 	
 	public WebElement getCity() {
-		return WebUtils.elementWait(driver, By.id("city"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("city"));
 	}
 	
 	public Select selectCountry() {
-		return new Select(WebUtils.elementWait(driver, By.id("id_country"), 30));
+		return new Select(WebUtils.elementWait(driver, By.id("id_country")));
 	}
 	
 	public Select selectState() {
-		return new Select(WebUtils.elementWait(driver, By.id("id_state"), 30));
+		return new Select(WebUtils.elementWait(driver, By.id("id_state")));
 	}
 	
 	public WebElement getPostalCodeInput() {
-		return WebUtils.elementWait(driver, By.id("postcode"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("postcode"));
 	}
 	
 	public WebElement getAdditionalInformationInput() {
-		return WebUtils.elementWait(driver, By.id("other"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("other"));
 	}
 	
 	public WebElement getHomePhoneInput() {
-		return WebUtils.elementWait(driver, By.id("phone"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("phone"));
 	}
 	
 	public WebElement getMobilePhoneInput() {
-		return WebUtils.elementWait(driver, By.id("phone_mobile"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("phone_mobile"));
 	}
 	
 	public WebElement getAddressAliasInput() {
-		return WebUtils.elementWait(driver, By.id("alias"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.id("alias"));
 	}
 	
 	public WebElement getRegisterButton() {
-		return WebUtils.clickWait(driver, By.id("submitAccount"), StaticValues.TIMEOUT);
+		return WebUtils.clickWait(driver, By.id("submitAccount"));
 	}
 	
 	public WebElement successfullyCreatedAccount() {
-		return WebUtils.elementWait(driver, By.xpath("//p[contains(text(), \"Welcome to your account.\")]"), StaticValues.TIMEOUT);
+		return WebUtils.elementWait(driver, By.xpath("//p[contains(text(), \"Welcome to your account.\")]"));
 	}
 		
 	public void setCustomerTitleMr() {
