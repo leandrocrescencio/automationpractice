@@ -143,6 +143,8 @@ public class SummerDressFlowTest extends BaseTest {
 			checkedItems = true;
 		}
 		Assert.assertEquals(checkedItems, true);
+		//account.getAccountLogout().click();
+
 	}
 
 }

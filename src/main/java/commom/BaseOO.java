@@ -4,15 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import pageobjects.Account;
-import pageobjects.Cart;
-import pageobjects.CartSummary;
-import pageobjects.CreateUser;
-import pageobjects.CreateUserInput;
-import pageobjects.Dress;
-import pageobjects.Home;
-import pageobjects.ShoppingActions;
-import pageobjects.SignInInput;
+import pageObjects.Account;
+import pageObjects.Cart;
+import pageObjects.CartSummary;
+import pageObjects.CreateUser;
+import pageObjects.CreateUserInput;
+import pageObjects.Dress;
+import pageObjects.Home;
+import pageObjects.ShoppingActions;
+import pageObjects.SignInInput;
 
 public class BaseOO {
 	protected WebDriver driver;

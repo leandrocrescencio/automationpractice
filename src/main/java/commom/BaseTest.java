@@ -66,7 +66,6 @@ public class BaseTest extends BaseOO {
 
 	@AfterClass
 	public void tearDown() {
-		account.getAccountLogout().click();
 		driver.quit();
 	}
 	
